@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-yellow': '#FF9F0D'
+        'custom-yellow': '#FF9F0D',
+        'custom-black': '#242424'
+
       }
     },
   },

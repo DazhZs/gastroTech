@@ -1,11 +1,8 @@
-import Navbar from './components/Navbar';
-
 function PayPage() {
     const placeholders = ['Primer nombre', 'Apellido', 'Email', 'Teléfono', 'Ciudad', 'País', 'Dirección', 'Código postal'];
 
     return (
         <div className='h-screen'>
-            <Navbar />
             <div className="flex">
                 <div className="w-1/2 p-4">
                     {placeholders.map((placeholder, i, arr) => i % 2 === 0 && (

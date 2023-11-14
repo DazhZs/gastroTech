@@ -1,5 +1,4 @@
 import ContainerCard from "./components/ContainerCard";
-import Navbar from "./components/Navbar";
 
 function HomePage() {
     const products = [
@@ -14,8 +13,7 @@ function HomePage() {
 
     ]
     return (
-        <div className="h-screen">
-            <Navbar />
+        <div className="h-screen w-full flex-grow">
             <div className="mt-8">
                 <ContainerCard products={products} />
             </div>
