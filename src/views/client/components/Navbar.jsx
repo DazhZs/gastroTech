@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Navbar({ onOpenSidebar }) {
   return (
-    <nav className="md:h-20 w-full bg-black-500 p-4 flex flex-col md:flex-row justify-between items-center border-b-2 border-custom-yellow box-border">
+    <nav className="md:h-20 w-full bg-custom-black p-4 flex flex-col md:flex-row justify-between items-center border-b-2 border-custom-yellow box-border sticky top-0 z-10">
       <div className="flex items-center mb-4 md:mb-0">
         <button onClick={onOpenSidebar} style={{ background: 'none', border: 'none' }} className='p-0'>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffff" viewBox="0 0 256 256" className="mr-4">
