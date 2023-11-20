@@ -19,13 +19,14 @@ function ContainerCard({ products }) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-4">
             {products.map((product, index) => (
-                <Card key={index} name={product.name} price={product.price} imageUrl={product.imageUrl} onCardClick={handleCardClick} />
+                <Card key={index} nombre_producto={product.nombre_producto} precio={product.precio} imagen={product.imagen} descripcion={product.descripcion} onCardClick={handleCardClick} />
             ))}
             {modalData && (
                 <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-                    <img src={modalData.imageUrl} alt={modalData.name} />
-                    <h2 style={{ color: 'white' }}>{modalData.name}</h2>
-                    <p style={{ color: 'white' }}>Precio: ${modalData.price}</p>
+                    <img src={modalData.imagen} />
+                    <h2 style={{ color: 'white' }}>{modalData.nombre_producto}</h2>
+                    <p style={{ color: 'white' }}>{modalData.descripcion}</p>
+                    <p style={{ color: 'white' }}>Precio: ${modalData.precio}</p>
                 </Modal>
             )}
         </div>
@@ -35,9 +36,10 @@ function ContainerCard({ products }) {
 ContainerCard.propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.shape({
-            name: PropTypes.string,
-            price: PropTypes.number,
-            imageUrl: PropTypes.string
+            nombre_producto: PropTypes.string,
+            precio: PropTypes.number,
+            imagen: PropTypes.string,
+            descripcion: PropTypes.string,
         })
     ).isRequired,
 };

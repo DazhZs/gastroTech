@@ -1,7 +1,7 @@
 import ContainerCard from "./components/ContainerCard";
 import { useState, useEffect } from 'react';
 
-function CategoryPage2() {
+function CategoryPage5() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -13,9 +13,9 @@ function CategoryPage2() {
                 }
                 const data = await response.json();
 
-                const productscategoria3 = data.data.filter(product => product.id_categoria === 3);
+                const productscategoria2 = data.data.filter(product => product.id_categoria === 6);
 
-                setProducts(productscategoria3);
+                setProducts(productscategoria2);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -32,4 +32,4 @@ function CategoryPage2() {
     );
 }
 
-export default CategoryPage2;
+export default CategoryPage5;
