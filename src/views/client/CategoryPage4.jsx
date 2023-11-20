@@ -1,7 +1,7 @@
 import ContainerCard from "./components/ContainerCard";
 import { useState, useEffect } from 'react';
 
-function CategoryPage2() {
+function CategoryPage4() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -13,9 +13,9 @@ function CategoryPage2() {
                 }
                 const data = await response.json();
 
-                const productscategoria3 = data.data.filter(product => product.id_categoria === 3);
+                const productscategoria1 = data.data.filter(product => product.id_categoria === 1);
 
-                setProducts(productscategoria3);
+                setProducts(productscategoria1);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -23,6 +23,7 @@ function CategoryPage2() {
 
         fetchData();
     }, []);
+
     return (
         <div className="h-screen w-full flex-grow">
             <div className="mt-8">
@@ -32,4 +33,4 @@ function CategoryPage2() {
     );
 }
 
-export default CategoryPage2;
+export default CategoryPage4;

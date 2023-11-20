@@ -9,13 +9,19 @@ function Sidebar({ onClose }) {
                 <h1 className="text-2xl mb-4 text-custom-yellow">Menú</h1>
                 <ul>
                     <li className="mb-2">
-                        <Link className="text-white" to="/category1" onClick={onClose}>Bebidas</Link>
+                        <Link className="text-white" to="/category4" onClick={onClose}>Desayuno</Link>
+                    </li>
+                    <li className="mb-2">
+                        <Link className="text-white" to="/category3" onClick={onClose}>Comida</Link>
+                    </li>
+                    <li className="mb-2">
+                        <Link className="text-white" to="/category5" onClick={onClose}>Cena</Link>
                     </li>
                     <li className="mb-2">
                         <Link className="text-white" to="/category2" onClick={onClose}>Postres</Link>
                     </li>
                     <li className="mb-2">
-                        <Link className="text-white" to="/category3" onClick={onClose}>Comida</Link>
+                        <Link className="text-white" to="/category1" onClick={onClose}>Bebidas</Link>
                     </li>
                 </ul>
             </div>
