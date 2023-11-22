@@ -11,13 +11,14 @@ function Card({ nombre_producto, precio, imagen, descripcion, onCardClick }) {
                     <h3 className="font-bold text-lg mb-2">{nombre_producto}</h3>
                     <p className="text-sm">Precio: ${precio}</p>
                 </div>
-                <button className="bg-custom-yellow mt-2 py-0 px-8 rounded self-end hover:bg-yellow-700">Pedir</button>
+                <button className="bg-custom-yellow mt-2 py-0 px-8 rounded self-end hover:bg-yellow-700">Ver</button>
             </div>
         </div>
     );
 }
 
 Card.propTypes = {
+    id_producto: PropTypes.number.isRequired,
     nombre_producto: PropTypes.string.isRequired,
     precio: PropTypes.number.isRequired,
     imagen: PropTypes.string.isRequired,
