@@ -14,17 +14,14 @@ function HomePage() {
                 }
                 const data = await response.json();
 
-                // Crear un objeto para rastrear el primer producto de cada categoría
                 const firstProductsByCategory = {};
 
-                // Filtrar y almacenar el primer producto de cada categoría
                 data.data.forEach(product => {
                     if (!firstProductsByCategory[product.id_categoria]) {
                         firstProductsByCategory[product.id_categoria] = product;
                     }
                 });
 
-                // Convertir el objeto en un array de productos
                 const filteredProducts = Object.values(firstProductsByCategory);
 
                 setProducts(filteredProducts);

@@ -8,15 +8,13 @@ function CategoryPage4() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/productos');
+                const response = await fetch('http://localhost:8080/categorias?categoryId=1');
                 if (!response.ok) {
                     throw new Error('Error fetching data');
                 }
                 const data = await response.json();
 
-                const productscategoria1 = data.data.filter(product => product.id_categoria === 1);
-
-                setProducts(productscategoria1);
+                setProducts(data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

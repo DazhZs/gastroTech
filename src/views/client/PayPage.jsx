@@ -23,6 +23,16 @@ function PayPage() {
 
 
     const handlePaymentClick = async (metodo_pago, precio_total) => {
+        if (cart.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                color: '#fff',
+                text: 'Necesitas agregar un producto!',
+                background: '#202020'
+            });
+            return;
+        }
         if (metodo_pago === 2) {
             setIsModalOpen(true);
             return;
@@ -58,6 +68,7 @@ function PayPage() {
                 console.log(data);
                 Swal.fire({
                     icon: 'success',
+                    color: '#fff',
                     title: 'Pedido realizado',
                     showConfirmButton: true,
                     background: '#202020',
@@ -74,6 +85,17 @@ function PayPage() {
     };
 
     const handleCardButtonClick = () => {
+        if (cart.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                color: '#fff',
+                text: 'Necesitas agregar un producto!',
+                background: '#202020'
+
+            });
+            return;
+        }
         setIsModalOpen(true);
         setPendingPayment(true);
     };
@@ -177,25 +199,34 @@ function PayPage() {
             <div className="flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 p-4">
                     <h2 className="text-xl mb-4 text-center">Datos Personales</h2>
-                    {keys.map((key, i, arr) => i % 2 === 0 && (
+                    {keys.slice(0, -1).map((key, i, arr) => i % 2 === 0 && (
                         <div key={i} className="flex mb-6 mt-6">
                             <input
                                 placeholder={key}
                                 value={cliente[key] || ''}
                                 onChange={e => setCliente({ ...cliente, [key]: e.target.value })}
                                 className="w-1/2 p-2 border border-custom-yellow rounded-lg mr-2"
-                                disabled={key !== 'ubicacion'} // Deshabilita el campo de entrada si la clave no es 'ubicacion'
+                                disabled={key !== 'ubicacion'}
                             />
                             <input
                                 placeholder={arr[i + 1]}
                                 value={cliente[arr[i + 1]] || ''}
                                 onChange={e => setCliente({ ...cliente, [arr[i + 1]]: e.target.value })}
                                 className="w-1/2 p-2 border border-custom-yellow rounded-lg"
-                                disabled={arr[i + 1] !== 'ubicacion'} // Deshabilita el campo de entrada si la clave no es 'ubicacion'
+                                disabled={arr[i + 1] !== 'ubicacion'}
                             />
                         </div>
                     ))}
-                    <div className="flex mt-40 space-x-4">
+                    <div className="flex mb-6 mt-6">
+                        <input
+                            placeholder={keys[keys.length - 1]}
+                            value={cliente[keys[keys.length - 1]] || ''}
+                            onChange={e => setCliente({ ...cliente, [keys[keys.length - 1]]: e.target.value })}
+                            className="w-1/2 p-2 border border-custom-yellow rounded-lg mr-2"
+                            disabled={keys[keys.length - 1] !== 'ubicacion'}
+                        />
+                    </div>
+                    <div className="flex mt-20 space-x-4">
                         <button onClick={() => handlePaymentClick(1, precio_total)} className="w-1/2 p-2 border border-custom-yellow hover:border-yellow-700 bg-custom-black">Pagar con Efectivo</button>
                         <button onClick={handleCardButtonClick} className="w-1/2 p-2 border bg-custom-yellow hover:bg-yellow-600">Pagar en Tarjeta</button>
                         {isModalOpen && (
