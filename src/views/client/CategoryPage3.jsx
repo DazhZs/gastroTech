@@ -1,5 +1,6 @@
 import ContainerCard from "./components/ContainerCard";
 import { useState, useEffect } from 'react';
+import Footer from "./components/Footer";
 
 function CategoryPage3() {
     const [products, setProducts] = useState([]);
@@ -25,10 +26,11 @@ function CategoryPage3() {
     }, []);
 
     return (
-        <div className="h-screen w-full flex-grow">
-            <div className="mt-8">
+        <div className="min-h-screen w-full flex flex-col justify-between">
+            <div className="mt-8 mb-16 flex-grow">
                 <ContainerCard products={products} />
             </div>
+            <Footer />
         </div>
     );
 }
