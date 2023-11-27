@@ -8,20 +8,13 @@ function CategoryPage1() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/productos');
+                const response = await fetch('http://localhost:8080/categorias?categoryIds=2,8,7');
                 if (!response.ok) {
                     throw new Error('Error fetching data');
                 }
                 const data = await response.json();
 
-                const productscategoria2 = data.data.filter(product => product.id_categoria === 2);
-                const productscategoria8 = data.data.filter(product => product.id_categoria === 8);
-                const productscategoria7 = data.data.filter(product => product.id_categoria === 7);
-
-
-                const filteredProducts = productscategoria2.concat(productscategoria8, productscategoria7);
-
-                setProducts(filteredProducts);
+                setProducts(data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
